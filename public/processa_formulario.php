@@ -13,13 +13,13 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'elia20109029@gmail.com';
-    $mail->Password = 'xzft echc igdi ssgb';
+    $mail->Username = 'emailremetente@seuemail.com';
+    $mail->Password = 'senha do aplicativo';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
     $mail->setFrom($_POST['email'], $_POST['nome']);
-    $mail->addAddress('nucleoabracapets@gmail.com');
+    $mail->addAddress('email@destinatário.com');
 
 $mail->isHTML(true);
 $mail->Subject = 'Formulário de Adoção de Animais';
