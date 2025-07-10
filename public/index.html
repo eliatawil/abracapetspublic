@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário de Adoção de Animais</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="img/logo.png" alt="logo projeto abraça pets"/>
+    <h1>Formulário de adoção de animais</h1>
+    <div class="descricao">
+      <p>Campos com (*) são obrigatórios</p>
+    </div>
+    <form id="form-adocao" method="POST">
+      <label for="nome">Nome:<span class="obrigatorio"> *</span></label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">E-mail:<span class="obrigatorio"> *</span></label>
+      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+
+      <label for="telefone">Telefone para contato:<span class="obrigatorio"> *</span></label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+
+      <label>1. Você mora em casa ou apartamento?<span class="obrigatorio"> *</span></label>
+      <input type="text" name="residencia" required />
+
+      <label>2. Qual sua idade?<span class="obrigatorio"> *</span></label>
+      <input type="number" name="idade" required placeholder="Somente números" />
+
+      <label>3. Mora com quem?<span class="obrigatorio"> *</span></label>
+      <textarea name="mora_com" required></textarea>
+
+      <label>4. Qual o bairro onde mora? De qual cidade?<span class="obrigatorio"> *</span></label>
+      <textarea name="moradia" placeholder="Bairro Tal, Cidade Tal" required></textarea>
+
+      <label for="criancas">5. Tem crianças?<span class="obrigatorio"> *</span></label>
+      <select id="criancas" name="criancas" required>
+        <option value="">Selecione</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+
+      <div id="criancas_detalhes_container" style="display: none; margin-top: 10px;">
+        <label for="criancas_detalhes">Se sim, qual idade e mais informações?</label>
+        <textarea id="criancas_detalhes" name="criancas_detalhes" placeholder="Idade, comportamento..." required></textarea>
+      </div>
+
+      <label for="animais">6. Possui animais?<span class="obrigatorio"> *</span></label>
+      <select id="animais" name="animais" required>
+        <option value="">Selecione</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+
+      <div id="infoAnimaisExtras" style="display: none; margin-top: 10px;">
+        <label for="data_vacina">Data da última vacina:</label>
+        <input type="text" id="data_vacina" name="data_vacina" placeholder="dd/mm/aaaa" />
+
+        <label for="detalhes_animais" style="margin-top: 10px;">São vacinados ou castrados? Conte-nos um pouco mais:<span class="obrigatorio"> *</span></label>
+        <textarea id="detalhes_animais" name="detalhes_animais" rows="3" placeholder="Descreva quantidade, castração, tipo de vacina etc." required></textarea>
+      </div>
+
+      <label>7. Como é a rotina do seu lar? Fica gente durante o dia? Em qual período?<span class="obrigatorio"> *</span></label>
+      <textarea name="rotina" required></textarea>
+
+      <label>8. Perdeu recentemente algum animalzinho? Se sim, qual foi a causa?<span class="obrigatorio"> *</span></label>
+      <textarea name="perda_animal" required></textarea>
+
+      <label for="custos">9. Você teria condições de arcar com custos clínicos emergenciais?<span class="obrigatorio"> *</span><br>
+        <small>Um atendimento em horário de plantão custa em média R$650,00.</small>
+      </label>
+      <input type="text" id="custos" name="custos" required />
+
+      <label>10. Como lida se o animal fizer bagunça ou destruir algo?<span class="obrigatorio"> *</span></label>
+      <textarea name="comportamento" required></textarea>
+
+      <label for="mordida">11. Se o animal morder uma criança, o que pretende fazer?<span class="obrigatorio"> *</span></label>
+      <select name="mordida" id="mordida" required>
+        <option value="" disabled selected>Selecione uma opção</option>
+        <option value="Levar ao veterinário e avaliar a situação">Levar ao veterinário e avaliar a situação</option>
+        <option value="Conversar com a criança e supervisionar o convívio">Conversar com a criança e supervisionar o convívio</option>
+        <option value="Buscar ajuda de um adestrador ou especialista">Buscar ajuda de um adestrador ou especialista</option>
+        <option value="Matar o animal">Matar o animal</option>
+        <option value="Devolver o animal para a adoção">Devolver o animal para a adoção</option>
+        <option value="Soltar o animal na rua">Soltar o animal na rua</option>
+        <option value="Outra">Outra (descreva abaixo)</option>
+      </select>
+      <textarea name="mordida_outro" id="mordida_outro" placeholder="Se escolheu 'Outra', descreva aqui..."></textarea>
+
+
+      <label for="mudanca">12. Se mudar para lugar onde não pode ter animais, o que fará?<span class="obrigatorio"> *</span></label>
+      <select name="mudanca" id="mudanca" required>
+        <option value="">Selecione uma opção</option>
+        <option value="Procurar um lugar que aceite animais">Procurar um lugar que aceite animais</option>
+        <option value="Levar comigo, independentemente do lugar">Levar comigo, independentemente do lugar</option>
+        <option value="Conversar com o novo local para permitir">Conversar com o novo local para permitir</option>
+        <option value="Doar o animal">Doar o animal</option>
+        <option value="Outra">Outra (descreva abaixo)</option>
+      </select>
+      <textarea name="mudanca_outro" id="mudanca_outro" placeholder="Se escolheu 'Outra', descreva aqui..." style="display: none;"></textarea>
+
+
+      <label>13. O que te motivou a adotar este animal?<span class="obrigatorio"> *</span></label>
+      <textarea name="motivacao" required></textarea>
+
+      <div class="confirmacao">
+        <input type="checkbox" id="confirmacao" name="confirmacao" required>
+        <label for="confirmacao">Confirmo que as informações fornecidas acima são verdadeiras.</label>
+      </div>
+
+      <div class="botoes">
+        <button type="reset">Limpar</button>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
